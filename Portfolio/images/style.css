@@ -1,0 +1,919 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('path/to/your/poppins-regular.woff2') format('woff2'),
+         url('path/to/your/poppins-regular.woff') format('woff');
+    /* Add more font variations here if you have them, like bold, italic, etc. */
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+:root {
+    --bg-color:#081b29;
+    --second-bg-color:#112e42;
+    --text-color: #fff;
+    --main-color: #00abf0;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .3s;
+}
+
+.header.sticky{
+    background: #ff0707;
+}
+
+.logo{
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.navbar a{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 580;
+    margin-left: 3.5rem;
+}
+.navbar a:hover,
+.navbar a.active
+{
+    color: var(--main-color);
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+    display: none;
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    padding: 0 9%;
+    background: url(images/home.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.home-content {
+    max-width: 60rem;
+}
+
+.home-content h1{
+    font-size:7rem;
+    font-weight: 900;
+    line-height: 1.3;
+    color: white;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.6);
+    background-color: #49bfff;
+}
+.home-content span{
+    color: #112e42;
+}
+.home-content p b{
+    color: #47b5ff;
+    font-size: 1.8rem;
+}
+.home-content .text-animate{
+    position: relative;
+    width: 32.8rem;
+}
+
+.home-content .text-animate h3{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: transparent;
+    -webkit-text-stroke: .10px var(--main-color);
+}
+
+.home-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 4rem;
+}
+
+.btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 34.5rem;
+    height: 5rem;
+}
+
+.btn-box .btn{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 100%;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.btn-box .btn:hover {
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2) {
+    background: transparent;
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2):hover {
+    color: var(--bg-color);
+}
+
+.btn-box .btn:nth-child(2)::before {
+    background: var(--main-color);
+}
+
+.btn-box .btn::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box .btn:hover::before {
+    width: 100%;
+}
+
+.home-sci {
+    position: absolute;
+    bottom: 4rem;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom:110px;
+    padding-left: 20px;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-sci a:hover {
+    color: var(--bg-color);
+}
+
+.home-sci a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before{
+    width: 100%;
+}
+
+.home-imghover{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background: transparent;
+    transition: 3s;
+}
+
+.home-imghover:hover{
+    background: var(--bg-color);
+    opacity: .8;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    background: var(--second-bg-color);
+    padding-bottom: 6rem;
+}
+
+.heading {
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+span{
+    color: var(--main-color);
+}
+
+.about-img {
+    position: relative;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img img{
+    width: 90%;
+    border-radius: 50%;
+    border: .2rem solid var(--main-color);
+}
+
+.about-img .circle-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-top: .2rem solid var(--second-bg-color);
+    border-bottom: .2rem solid var(--second-bg-color);
+    border-left: .2rem solid var(--main-color);
+    border-right: .2rem solid var(--main-color);
+
+}
+
+.about-content {
+    text-align: center;
+}
+
+.about-content h3{
+    font-size: 2.6rem;
+}
+
+.about-content p{
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+.btn-box.btns {
+    display: inline-block;
+    width: 15rem;
+}
+
+.btn-box.btns a::before {
+    background: var(--second-bg-color);
+}
+
+/*--------Education Design----------*/
+
+.education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 5rem;
+}
+
+.education .education-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.education-row .education-column {
+    flex: 1 1 40rem;
+}
+
+.education-column .title {
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem 2rem;
+}
+
+.education-column .education-box {
+    border-left: .2rem solid var(--main-color);
+}
+
+.education-box .education-content{
+    position: relative;
+    padding-left: 2rem;
+}
+
+.education-box .education-content::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1.1rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+
+.education-content .content {
+    position: relative;
+    padding: 1.5rem;
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.education-content .content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.education-content .content:hover::before {
+    width: 100%;
+    transform: scale(1.5rem);
+}
+
+.education-content .content .year{
+    font-size: 1.5rem;
+    color: var(--main-color);
+    padding-bottom: .5rem;
+}
+
+.education-content .content .year i{
+    padding-right: .5rem;
+}
+
+.education-content .content h3{
+    font-size: 2rem;
+}
+
+.education-content .content p{
+    font-size: 1.6rem;
+    padding-top: .5rem;
+}
+
+.education select{
+    display: inline;
+    margin-bottom: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+    background: var(--main-color);
+    background-image: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 20;
+    background: #00abf0;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+select{
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    line-height:2;
+
+}
+
+ select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 0 1em;
+    background: #000;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+}
+
+/*------Projects Page Design--------*/
+h2{
+    padding-top: 5rem;
+}
+
+::-webkit-scrollbar {
+    width: 0.5em; /* Set a width for the scrollbar to apply the styles */
+ }
+  
+::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Hide the thumb (draggable part) */
+ }
+  
+::-webkit-scrollbar-track {
+    background-color: transparent; /* Hide the track (background) */
+}
+
+  /* Style the control bar background */
+#myVideo::-webkit-media-controls-panel {
+background-color: rgba(0, 0, 0, 0.5); /* Example: semi-transparent black */
+}
+
+#myVideo::-webkit-media-controls-timeline,
+#myVideo::-webkit-media-controls-current-time-display,
+#myVideo::-webkit-media-controls-time-remaining-display,
+#myVideo::-webkit-media-controls-volume-slider {
+display: none; /* Hide specific controls (optional) */
+}
+
+/* Add custom play/pause buttons */
+#myVideo::before {
+content: "▶"; /* Play icon */
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 50px;
+color: white;
+cursor: pointer;
+}
+
+/* Custom styles for the full-screen button */
+#myVideo::-webkit-media-controls-fullscreen-button {
+color: black;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+padding: 5px 10px;
+cursor: pointer;
+}
+/* Hide the default full-screen button icon */
+#myVideo::-webkit-media-controls-fullscreen-button::before {
+content: ""; /* Empty content to hide the default icon */
+}
+
+/* Custom styles for the full-screen button icon */
+#myVideo.fullscreen::-webkit-media-controls-fullscreen-button::before {
+content: "\u25A1"; /* Square icon when in full-screen */
+}
+
+#myVideo1::-webkit-media-controls-panel {
+background-color: rgba(0, 0, 0, 0.5); /* Example: semi-transparent black */
+}
+
+#myVideo1::-webkit-media-controls-timeline,
+#myVideo1::-webkit-media-controls-current-time-display,
+#myVideo1::-webkit-media-controls-time-remaining-display,
+#myVideo1::-webkit-media-controls-volume-slider {
+display: none; /* Hide specific controls (optional) */
+}
+
+/* Add custom play/pause buttons */
+#myVideo1::before {
+content: "▶"; /* Play icon */
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 50px;
+color: white;
+cursor: pointer;
+}
+
+/* Custom styles for the full-screen button */
+#myVideo1::-webkit-media-controls-fullscreen-button {
+color: black;
+border: none;
+border-radius: 5px;
+font-size: 16px;
+padding: 5px 10px;
+cursor: pointer;
+}
+/* Hide the default full-screen button icon */
+#myVideo1::-webkit-media-controls-fullscreen-button::before {
+content: ""; /* Empty content to hide the default icon */
+}
+
+/* Custom styles for the full-screen button icon */
+#myVideo1.fullscreen::-webkit-media-controls-fullscreen-button::before {
+content: "\u25A1"; /* Square icon when in full-screen */
+}
+
+#myVideo2::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.5); /* Example: semi-transparent black */
+    }
+    
+    #myVideo2::-webkit-media-controls-timeline,
+    #myVideo2::-webkit-media-controls-current-time-display,
+    #myVideo2::-webkit-media-controls-time-remaining-display,
+    #myVideo2::-webkit-media-controls-volume-slider {
+    display: none; /* Hide specific controls (optional) */
+    }
+    
+    /* Add custom play/pause buttons */
+    #myVideo2::before {
+    content: "▶"; /* Play icon */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    cursor: pointer;
+    }
+    
+    /* Custom styles for the full-screen button */
+    #myVideo2::-webkit-media-controls-fullscreen-button {
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 10px;
+    cursor: pointer;
+    }
+    /* Hide the default full-screen button icon */
+    #myVideo2::-webkit-media-controls-fullscreen-button::before {
+    content: ""; /* Empty content to hide the default icon */
+    }
+    
+    /* Custom styles for the full-screen button icon */
+    #myVideo2.fullscreen::-webkit-media-controls-fullscreen-button::before {
+    content: "\u25A1"; /* Square icon when in full-screen */
+    }
+
+.container{
+    padding-bottom: 10rem;
+    
+}
+
+.slider-wrapper{
+    position: relative;
+    max-width: 120rem;
+    margin: 0 auto;
+    
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+    
+}
+
+
+.slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+}
+
+.slider img:hover{
+    color: #022278;
+    transition: .5s;
+}
+
+.slider video{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
+
+.slider-nav {
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    opacity: 0.75;
+    transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover{
+    opacity: 1;
+}
+
+/*--------------------------*/
+
+.skills {
+    min-height: auto;
+    padding-bottom: 7rem;
+    background-color: var(--second-bg-color);
+}
+
+
+
+.skills .skills-row {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5rem;
+}
+
+.skills-row .skills-column{
+    flex: 1 1 40rem;
+}
+
+.skills-column .title{
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem;
+}
+
+.skills-box .skills-content {
+    position: relative;
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    padding: .5rem 1.5rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.skills-box .skills-content::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.skills-box .skills-content:hover::before {
+    width: 100%;
+}
+
+.skills-content .progress{
+    padding: 1rem 0;
+}
+
+.skills-content .progress h3{
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.skills-content .progress h3 span{
+    color: var(--text-color);
+}
+
+.skills-content .progress .bar{
+    height: 2.5rem;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+    padding: .5rem;
+    margin: 1rem 0;
+}
+
+.skills-content .progress .bar span{
+    display: block;
+    height: 100%;
+    border: .3rem;
+    background: var(--main-color);
+}
+
+/* Columns Presentage Design */
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span{
+    width: 90%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span{
+    width: 90%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span{
+    width: 90%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span{
+    width: 90%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span{
+    width: 90%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span{
+    width: 90%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span{
+    width: 90%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span{
+    width: 90%;
+}
+
+
+.container .heading{
+    margin-top: 200px;
+}
+/* --------------------------------- */
+
+.contact {
+    min-height: auto;
+    padding-bottom: 7rem;
+    background-color: var(--second-bg-color);
+}
+
+.contact form{
+    max-width: 70rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact form .input-box{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box .input-field {
+    position: relative;
+    width: 49%;
+    margin: .8rem 0;
+}
+
+.contact form .input-box .input-field input ,
+.contact form .textarea-field textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: transparent;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+}
+
+.contact form .input-box .input-field input::placeholder ,
+.contact form .textarea-field textarea::placeholder{
+    color: var(--text-color);
+}
+
+.contact form .focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--bg-color);
+    border-radius: .6rem;
+    z-index: -1;
+    transition: .5s;
+}
+
+.contact form .input-box .input-field input:focus~.focus ,
+.contact form .input-box .input-field input:valid~.focus ,
+.contact form .textarea-field textarea:focus~.focus
+{
+    width: 100%;
+}
+
+
+.contact form .textarea-field {
+    position: relative;
+    margin: .8rem 0 2.7rem;
+    display: flex;
+}
+
+.contact form .textarea-field textarea {
+    resize: none;
+}
+
+.contact form .btn-box.btns .btn {
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background-color: var(--second-bg-colorr);
+}
+
+.footer-text p {
+    font-size: 1.5rem;
+    margin-right: 30px;
+}
+
+.footer-icon a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.footer-icon a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.footer-icon a:hover::before{
+    width: 100%;
+}
+
+
+.footer-icon a i{
+    font-size: 2.4rem;
+    color: var(--bg-color);
+    transition: .5s;
+}
